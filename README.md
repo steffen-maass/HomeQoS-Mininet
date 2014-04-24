@@ -1,0 +1,36 @@
+CS6250-project
+==============
+
+Do this before trying to running any of the controller code:
+$ cd libprotoident/lib
+$ make
+(Try again if it fails until it succeeds...)
+
+Then do this once:
+$ cp libprotoident.py ~/pyretic/pyretic/examples/
+$ cp _libprotoident.so ~/pyretic/pyretic/examples/
+
+Also do this once:
+sudo pip install recordtype
+
+Change back to the controller:
+$ cd ../controller
+
+Set up the switch topology:
+$ sudo ./setup2Switch.sh
+
+Set up the tc-constraints, either this one for one link:
+$ sudo ./addTCOneLink.sh
+
+Or this one for a streaming and a regular download link:
+$ sudo ./addTCTwoLinks.sh
+
+Or this one for a full-blown four link set up:
+$ sudo ./addTCOnVeth.sh
+
+Run it like this for the QoS-setup:
+$ make run_qos
+
+Or this for the one-link-setup:
+$ make run_shared
+
